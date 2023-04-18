@@ -1,0 +1,53 @@
+﻿@model IEnumerable<prueba_1_hp.Models.Asignatura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Base de datos de CFT</h1>
+ 
+<p>
+    <a class="btn btn-info" asp-action="Create">Crear</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreAsignatura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionAsignatura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoAsignatura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaActualizacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreAsignatura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionAsignatura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoAsignatura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaActualizacion)
+            </td>
+            <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.IdAsignatura">Editar</a> |
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdAsignatura">Detalles</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdAsignatura">Eliminar</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

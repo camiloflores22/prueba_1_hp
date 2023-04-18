@@ -1,0 +1,71 @@
+﻿@model IEnumerable<prueba_1_hp.Models.Estudiante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Base de datos de CFT</h1>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Crear</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEstudiante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApellidoEstudiante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RutEstudiante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DireccionEstudiante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEstudiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidoEstudiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RutEstudiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionEstudiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.IdEstudiante">Editar</a> |
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdEstudiante">Detalles</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdEstudiante">Eliminar</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
